@@ -11,7 +11,7 @@ const availableZipItems = [
     { place: "Lampang", code: '52000' },
     { place: "Chiang Rai", code: '57000' },
     { place: "Surat Thani", code: '84000' }, 
-    { place: "Hat Yai", code: '90110' },
+    { place: "Songkhla", code: '90000' },
     { place: "Trang", code: '92000' },
 ]
 
@@ -65,15 +65,11 @@ const styles = StyleSheet.create({
         margin: 10,
         fontSize: 20,
         color: '#C0C0C0',
-        textAlign: 'center',
-        borderColor: 'red'
     },
     zipCode: {
         flex: 1,
         margin: 10,
         fontSize: 20,
         color: '#C0C0C0',
-        textAlign: 'center',
-        borderColor: 'red'
     }
 })
