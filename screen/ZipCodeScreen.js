@@ -4,14 +4,14 @@ import { TouchableHighlight } from "react-native-gesture-handler"
 import { useNavigation } from "@react-navigation/native"
 import { color } from "react-native-reanimated"
 
-const availableZipItems = [
-    { place: "Chonburi", code: '20000' },
-    { place: "Buri Ram", code: '31000' },    
-    { place: "Khonkaen", code: '40000' },
-    { place: "Loei", code: '42000' },    
-    { place: "Chaingmai", code: '50000' },
-    { place: "Ratchaburi", code: '70000' },
-    { place: "Hatyai", code: '90110' },
+const availableZipItems = [    
+    { place: "Bangkok", code: '10100' },    
+    { place: "Khon Kaen", code: '40000' },       
+    { place: "Chiang Mai", code: '50000' },
+    { place: "Lampang", code: '52000' },
+    { place: "Chiang Rai", code: '57000' },
+    { place: "Surat Thani", code: '84000' }, 
+    { place: "Hat Yai", code: '90110' },
     { place: "Trang", code: '92000' },
 ]
 
