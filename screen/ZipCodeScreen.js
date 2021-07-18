@@ -1,24 +1,25 @@
 import React from "react"
-import { View, Text, StyleSheet, FlatList } from "react-native"
+import { View, Text, StyleSheet, FlatList, ImageBackground } from "react-native"
 import { TouchableHighlight } from "react-native-gesture-handler"
 import { useNavigation } from "@react-navigation/native"
+import { color } from "react-native-reanimated"
 
 const availableZipItems = [
+    { place: "Chonburi", code: '20000' },
+    { place: "Buri Ram", code: '31000' },    
+    { place: "Khonkaen", code: '40000' },
+    { place: "Loei", code: '42000' },    
+    { place: "Chaingmai", code: '50000' },
+    { place: "Ratchaburi", code: '70000' },
     { place: "Hatyai", code: '90110' },
     { place: "Trang", code: '92000' },
-    { place: "Chaingmai", code: '50000' },
-    { place: "Khonkaen", code: '40000' },
-    { place: "Chonburi", code: '20000' },
-    { place: "Ratchaburi", code: '70000'},
-    { place: "Prachuap Khiri Khan", code: '77000'},
-    { place: "Buri Ram", code: '31000'}
 ]
 
 const ZipItem = ({ place, code, navigation }) => (
     <TouchableHighlight onPress={() => navigation.navigate('Weather', { zipCode: code })}>
         <View style={styles.zipItem}>
-            <Text>{place}</Text>
-            <Text >{code}</Text>
+            <Text style={styles.zipPlace}>{place}</Text>
+            <Text style={styles.zipCode}>{code}</Text>
         </View>
     </TouchableHighlight>
 )
@@ -27,24 +28,52 @@ const ZipItem = ({ place, code, navigation }) => (
 export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
-        <FlatList
-            data={availableZipItems}
-            keyExtractor={item => item.code}
-            renderItem={({ item }) => <ZipItem {...item} navigation={navigation}/>}
-        />
+        <ImageBackground source={require('../home_bg.jpg')} style={styles.scene}>           
+                <FlatList
+                    data={availableZipItems}
+                    keyExtractor={item => item.code}
+                    renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
+                />
+        </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
-    zipItem: {
-        flex: 1,
+    scene: {
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        alignItems: 'center',
+        backgroundColor: 'white',
+        width: '100%',
+        height: '100%'
+    },
+    back: {
+         alignItems:'center',
+         backgroundColor: "rgba(0, 0, 0, 0.75)",
+         width: '100%',
+         height: '45%',
+         alignItems: 'center'
+     },
+    zipItem: {
+        flex: 2,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: "rgba(0,0,0,0.75)",
+        borderColor: 'red'
     },
     zipPlace: {
         flex: 1,
+        margin: 10,
+        fontSize: 20,
+        color: '#C0C0C0',
+        textAlign: 'center',
+        borderColor: 'red'
     },
     zipCode: {
         flex: 1,
+        margin: 10,
+        fontSize: 20,
+        color: '#C0C0C0',
+        textAlign: 'center',
+        borderColor: 'red'
     }
 })
