@@ -30,7 +30,6 @@ export default function Weather(props) {
     return (
         <ImageBackground source={require('../bg.jpg')} style={styles.scene}>
             <View style={styles.back} >
-                <Text> </Text>
                 <Text style={styles.Small_text}>Zip Code is {props.zipCode}.</Text>
                 <Forecast {...forecastInfo} />
             </View>
@@ -40,6 +39,7 @@ export default function Weather(props) {
 
 const styles = StyleSheet.create({
     scene: {
+        alignItems:'center',
         flexDirection: 'column',
         alignItems: 'center',
         backgroundColor: 'white',
@@ -47,12 +47,14 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     back: {
+        alignItems:'center',
         backgroundColor: "rgba(0, 0, 0, 0.75)",
         width: '100%',
-        height: '30%',
+        height: '70%',
         alignItems: 'center'
     },
     Small_text: {
+        margin: 10,
         fontSize: 20,
         color: '#C0C0C0'
     }
