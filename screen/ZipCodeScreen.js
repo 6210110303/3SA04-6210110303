@@ -2,7 +2,6 @@ import React from "react"
 import { View, Text, StyleSheet, FlatList, ImageBackground } from "react-native"
 import { TouchableHighlight } from "react-native-gesture-handler"
 import { useNavigation } from "@react-navigation/native"
-import { color } from "react-native-reanimated"
 
 const availableZipItems = [    
     { place: "Bangkok", code: '10100' },    
@@ -56,20 +55,22 @@ const styles = StyleSheet.create({
     zipItem: {
         flex: 2,
         flexDirection: 'row',
+        alignContent: 'center',
         justifyContent: 'space-between',
         backgroundColor: "rgba(0,0,0,0.75)",
-        borderColor: 'red'
     },
     zipPlace: {
         flex: 1,
         margin: 10,
         fontSize: 20,
         color: '#C0C0C0',
+        textAlign: 'center',
     },
     zipCode: {
         flex: 1,
         margin: 10,
         fontSize: 20,
         color: '#C0C0C0',
+        textAlign: 'center',
     }
 })
