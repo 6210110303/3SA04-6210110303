@@ -4,10 +4,12 @@ import { StyleSheet, Text, View } from "react-native"
 export default function Forecast(props) {
     return (
         <View style={{ color: 'white' }}>
-            <Text style={styles.Big_text}>{props.main}</Text>
+            <Text style={styles.Small_text}>Country: {props.country}</Text>
+            <Text style={styles.Small_text}>Province: {props.name}</Text>
+            <Text style={styles.Small_text}>{props.main}</Text>
             <Text style={styles.Small_text}>{props.description}</Text>
             <View>
-                <Text style={styles.Big_text}>{props.temp}<Text style={styles.more_Small_text}>°C</Text></Text>
+                <Text style={styles.Small_text}>{props.temp}<Text style={styles.more_Small_text}>°C</Text></Text>
             </View>
         </View >
 

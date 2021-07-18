@@ -6,7 +6,9 @@ export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
         main: '-',
         description: '-',
-        temp: 0
+        temp: 0,
+        name: '-',
+        country: '-',
     })
 
     useEffect(() => {
@@ -18,7 +20,9 @@ export default function Weather(props) {
                     setForecastInfo({
                         main: json.weather[0].main,
                         description: json.weather[0].description,
-                        temp: json.main.temp
+                        temp: json.main.temp,
+                        name: json.name,
+                        country: json.sys.country,
                     });
                 })
                 .catch((error) => {
@@ -30,7 +34,7 @@ export default function Weather(props) {
     return (
         <ImageBackground source={require('../bg.jpg')} style={styles.scene}>
             <View style={styles.back} >
-                <Text style={styles.Small_text}>Zip Code is {props.zipCode}.</Text>
+                <Text style={styles.Small_text}>Zip Code: {props.zipCode}.</Text>
                 <Forecast {...forecastInfo} />
             </View>
         </ImageBackground>
@@ -39,7 +43,7 @@ export default function Weather(props) {
 
 const styles = StyleSheet.create({
     scene: {
-        alignItems:'center',
+        alignItems: 'center',
         flexDirection: 'column',
         alignItems: 'center',
         backgroundColor: 'white',
@@ -47,10 +51,10 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     back: {
-        alignItems:'center',
+        alignItems: 'center',
         backgroundColor: "rgba(0, 0, 0, 0.75)",
         width: '100%',
-        height: '70%',
+        height: '50%',
         alignItems: 'center'
     },
     Small_text: {
