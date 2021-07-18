@@ -4,11 +4,14 @@ import Forecast from "./Forecast"
 
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
-        main: '-',
         description: '-',
         temp: 0,
         name: '-',
         country: '-',
+        feels_like: '-',
+        temp_min: '-',
+        temp_max: '-',
+        zipCode: '-',
     })
 
     useEffect(() => {
@@ -23,6 +26,10 @@ export default function Weather(props) {
                         temp: json.main.temp,
                         name: json.name,
                         country: json.sys.country,
+                        feels_like: json.main.feels_like,
+                        temp_min: json.main.temp_min,
+                        temp_max: json.main.temp_max,
+                        zipCode: props.zipCode,
                     });
                 })
                 .catch((error) => {
@@ -34,7 +41,6 @@ export default function Weather(props) {
     return (
         <ImageBackground source={require('../weather_bg.jpg')} style={styles.scene}>
             <View style={styles.back} >
-                <Text style={styles.Small_text}>Zip Code: {props.zipCode}.</Text>
                 <Forecast {...forecastInfo} />
             </View>
         </ImageBackground>
@@ -53,8 +59,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: "rgba(0, 0, 0, 0.75)",
         width: '100%',
-        height: '50%',
-        alignItems: 'center'
+        height: '48%',
+        borderRadius: 35,
     },
     Small_text: {
         margin: 10,

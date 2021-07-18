@@ -58,6 +58,10 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'space-between',
         backgroundColor: "rgba(0,0,0,0.75)",
+        borderRadius: 10,
+        marginLeft:"10%",
+        marginRight:"10%",
+        marginTop:"3.5%",
     },
     zipPlace: {
         flex: 1,
